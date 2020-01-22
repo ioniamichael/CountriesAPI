@@ -2,10 +2,9 @@ package com.enjoyapps.countriesapi.mvp;
 
 import android.content.Context;
 
-import com.enjoyapps.countriesapi.adapters.CountryPresenter;
 import com.enjoyapps.countriesapi.api.ApiClient;
 import com.enjoyapps.countriesapi.api.ApiService;
-import com.enjoyapps.countriesapi.modal.Country;
+import com.enjoyapps.countriesapi.pojo.Country;
 
 import java.util.List;
 

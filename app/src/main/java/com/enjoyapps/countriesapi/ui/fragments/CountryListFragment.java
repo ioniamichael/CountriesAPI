@@ -13,16 +13,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.enjoyapps.countriesapi.R;
 import com.enjoyapps.countriesapi.adapters.CountryAdapter;
-import com.enjoyapps.countriesapi.adapters.CountryPresenter;
-import com.enjoyapps.countriesapi.api.ApiClient;
-import com.enjoyapps.countriesapi.api.ApiService;
-import com.enjoyapps.countriesapi.modal.Country;
+import com.enjoyapps.countriesapi.mvp.CountryPresenter;
+import com.enjoyapps.countriesapi.pojo.Country;
 import com.enjoyapps.countriesapi.mvp.CountriesView;
 
 import java.util.List;
-
-import io.reactivex.disposables.Disposable;
-import retrofit2.Retrofit;
 
 public class CountryListFragment extends Fragment implements CountryPresenter {
 

@@ -13,7 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.enjoyapps.countriesapi.R;
-import com.enjoyapps.countriesapi.modal.Country;
+import com.enjoyapps.countriesapi.pojo.Country;
 import com.github.twocoffeesoneteam.glidetovectoryou.GlideToVectorYou;
 
 import java.util.Collections;
@@ -73,7 +73,6 @@ public class CountryAdapter extends RecyclerView.Adapter<CountryAdapter.CountryV
                 .init()
                 .with(mContext)
                 .load(Uri.parse(countries.get(position).getFlag()), holder.mCountryFlag);
-
 
     }
 

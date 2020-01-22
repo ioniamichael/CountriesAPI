@@ -1,6 +1,6 @@
 package com.enjoyapps.countriesapi.api;
 
-import com.enjoyapps.countriesapi.modal.Country;
+import com.enjoyapps.countriesapi.pojo.Country;
 
 import java.util.List;
 
