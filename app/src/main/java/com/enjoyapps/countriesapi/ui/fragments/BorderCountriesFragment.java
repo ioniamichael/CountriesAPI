@@ -11,11 +11,15 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.enjoyapps.countriesapi.R;
+import com.enjoyapps.countriesapi.pojo.Country;
+
+import java.util.List;
 
 public class BorderCountriesFragment extends Fragment {
 
     private View view;
     private RecyclerView mRvBorderCountries;
+    private List<Country> mBorderCountries;
 
     @Nullable
     @Override

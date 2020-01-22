@@ -1,6 +1,7 @@
 package com.enjoyapps.countriesapi.mvp;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.enjoyapps.countriesapi.api.ApiClient;
 import com.enjoyapps.countriesapi.api.ApiService;
@@ -39,4 +40,5 @@ public class CountriesView {
             }
         });
     }
+
 }

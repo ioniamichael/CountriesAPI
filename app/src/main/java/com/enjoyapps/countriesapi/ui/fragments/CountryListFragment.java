@@ -1,6 +1,7 @@
 package com.enjoyapps.countriesapi.ui.fragments;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,9 +14,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.enjoyapps.countriesapi.R;
 import com.enjoyapps.countriesapi.adapters.CountryAdapter;
+import com.enjoyapps.countriesapi.api.ApiClient;
+import com.enjoyapps.countriesapi.api.ApiService;
 import com.enjoyapps.countriesapi.mvp.CountryPresenter;
 import com.enjoyapps.countriesapi.pojo.Country;
 import com.enjoyapps.countriesapi.mvp.CountriesView;
+import com.enjoyapps.countriesapi.singletons.BorderCountriesSingleton;
 
 import java.util.List;
 
@@ -46,7 +50,6 @@ public class CountryListFragment extends Fragment implements CountryPresenter {
 
     private void initContentView() {
         mCountriesView.getAllCountries();
-
     }
 
     @Override
@@ -55,6 +58,14 @@ public class CountryListFragment extends Fragment implements CountryPresenter {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
         mRVCountries.setLayoutManager(layoutManager);
         mRVCountries.setAdapter(mCountryAdapter);
+
+        mCountryAdapter.setiOnItemClickListener(new CountryAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position, List<String> borderCountries) {
+                Log.d("myDebug", "onItemClick: " + position + " " + borderCountries);
+
+            }
+        });
     }
 
     public void sortByNativeName() {
