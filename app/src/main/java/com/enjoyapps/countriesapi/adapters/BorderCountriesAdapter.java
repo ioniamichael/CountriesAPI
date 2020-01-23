@@ -17,27 +17,26 @@ import com.enjoyapps.countriesapi.utils.ArraySort;
 import com.github.twocoffeesoneteam.glidetovectoryou.GlideToVectorYou;
 
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 public class BorderCountriesAdapter extends RecyclerView.Adapter<BorderCountriesAdapter.BorderCountriesViewHolder> {
 
     private List<Country> mBorderCountries;
-    private Context mContext;
-    private ArraySort sort = new ArraySort();
+    private final Context mContext;
+    private final ArraySort sort = new ArraySort();
 
     public BorderCountriesAdapter(List<Country> mBorderCountries, Context mContext) {
         this.mBorderCountries = mBorderCountries;
         this.mContext = mContext;
     }
 
-    public void updateAdapter(List<Country> countries) {
-        this.mBorderCountries = countries;
+    private void updateAdapter(List<Country> mBorderCountries) {
+        this.mBorderCountries = mBorderCountries;
         notifyDataSetChanged();
     }
 
     public void sortByArea() {
-        Collections.sort(mBorderCountries);
+        sort.sortByArea(mBorderCountries);
         updateAdapter(mBorderCountries);
     }
 
@@ -72,10 +71,11 @@ public class BorderCountriesAdapter extends RecyclerView.Adapter<BorderCountries
 
     class BorderCountriesViewHolder extends RecyclerView.ViewHolder {
 
-        private ImageView mCountryFlag;
-        private TextView mTVCountryName, mTVCountryNativeName;
+        private final ImageView mCountryFlag;
+        private final TextView mTVCountryName;
+        private final TextView mTVCountryNativeName;
 
-        public BorderCountriesViewHolder(@NonNull View itemView) {
+        BorderCountriesViewHolder(@NonNull View itemView) {
             super(itemView);
             mCountryFlag = itemView.findViewById(R.id.imgCountryFlag);
             mTVCountryName = itemView.findViewById(R.id.tvCountryName);

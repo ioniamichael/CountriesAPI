@@ -3,9 +3,11 @@ package com.enjoyapps.countriesapi.pojo;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
-public class Country implements Comparable<Country> {
+public class Country{
 
     @SerializedName("name")
     @Expose
@@ -230,8 +232,4 @@ public class Country implements Comparable<Country> {
         this.cioc = cioc;
     }
 
-    @Override
-    public int compareTo(Country o) {
-        return Double.compare(o.getArea(), getArea());
-    }
 }

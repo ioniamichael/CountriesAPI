@@ -22,7 +22,7 @@ public class BorderCountriesFragment extends Fragment {
 
     private View view;
     private RecyclerView mRvBorderCountries;
-    private List<Country> mBorderCountries;
+    private final List<Country> mBorderCountries;
     private BorderCountriesAdapter mBorderCountriesAdapter;
 
     public BorderCountriesFragment(List<Country> mBorderCountries) {

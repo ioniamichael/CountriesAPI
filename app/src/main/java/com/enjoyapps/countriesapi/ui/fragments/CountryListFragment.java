@@ -16,16 +16,16 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.airbnb.lottie.LottieAnimationView;
 import com.enjoyapps.countriesapi.R;
 import com.enjoyapps.countriesapi.adapters.CountryAdapter;
-import com.enjoyapps.countriesapi.api.ApiClient;
-import com.enjoyapps.countriesapi.api.ApiService;
+import com.enjoyapps.countriesapi.mvp.CountriesView;
 import com.enjoyapps.countriesapi.mvp.CountryPresenter;
 import com.enjoyapps.countriesapi.pojo.Country;
-import com.enjoyapps.countriesapi.mvp.CountriesView;
-import com.enjoyapps.countriesapi.singletons.BorderCountriesSingleton;
 
 import java.util.List;
 
 public class CountryListFragment extends Fragment implements CountryPresenter {
+
+    private final String TAG = "myDebug";
+
 
     private View view;
     private RecyclerView mRVCountries;
@@ -68,7 +68,7 @@ public class CountryListFragment extends Fragment implements CountryPresenter {
         mCountryAdapter.setiOnItemClickListener(new CountryAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position, List<Country> borderCountries) {
-                Log.d("myDebug", "onItemClick: " + position + " " + borderCountries.size());
+                Log.d(TAG, "onItemClick: " + position + " " + borderCountries.size());
                 if (borderCountries.size() > 0) {
                     if (getFragmentManager() != null) {
                         getFragmentManager()

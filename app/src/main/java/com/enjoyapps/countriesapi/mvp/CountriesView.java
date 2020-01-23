@@ -14,8 +14,11 @@ import retrofit2.Response;
 
 public class CountriesView {
 
-    private CountryPresenter mCountryPresenter;
-    private Context mContext;
+    private final String TAG = "myDebug";
+
+
+    private final CountryPresenter mCountryPresenter;
+    private final Context mContext;
     private Call<List<Country>> call;
 
     public CountriesView(CountryPresenter mCountryPresenter, Context mContext) {
@@ -24,15 +27,15 @@ public class CountriesView {
     }
 
 
-    public void getAllCountries(){
+    public void getAllCountries() {
         mCountryPresenter.showPlaceHolder();
         ApiService apiService = ApiClient.getRetrofitInstance().create(ApiService.class);
         call = apiService.getAllCountries();
         call.enqueue(new Callback<List<Country>>() {
             @Override
-            public void onResponse(Call<List<Country>> call, Response<List<Country>> response) {
-                mCountryPresenter.removePlaceHolder();
-                mCountryPresenter.setAdapter(response.body());
+            public void onResponse(@androidx.annotation.NonNull Call<List<Country>> call, @androidx.annotation.NonNull Response<List<Country>> response) {
+                    mCountryPresenter.removePlaceHolder();
+                    mCountryPresenter.setAdapter(response.body());
             }
 
             @Override

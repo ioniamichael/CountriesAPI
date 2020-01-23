@@ -26,11 +26,13 @@ import java.util.List;
 
 public class CountryAdapter extends RecyclerView.Adapter<CountryAdapter.CountryViewHolder> {
 
+    private final String TAG = "myDebug";
+
     private List<Country> mCountries;
-    private Context mContext;
-    private Activity mActivity;
+    private final Context mContext;
+    private final Activity mActivity;
     private OnItemClickListener iOnItemClickListener;
-    private ArraySort sort = new ArraySort();
+    private final ArraySort sort = new ArraySort();
 
     public CountryAdapter(List<Country> countries, Context mContext, Activity mActivity) {
         this.mCountries = countries;
@@ -46,13 +48,13 @@ public class CountryAdapter extends RecyclerView.Adapter<CountryAdapter.CountryV
         this.iOnItemClickListener = iOnItemClickListener;
     }
 
-    public void updateAdapter(List<Country> countries) {
+    private void updateAdapter(List<Country> countries) {
         this.mCountries = countries;
         notifyDataSetChanged();
     }
 
     public void sortByArea() {
-        Collections.sort(mCountries);
+        sort.sortByArea(mCountries);
         updateAdapter(mCountries);
     }
 
@@ -97,9 +99,10 @@ public class CountryAdapter extends RecyclerView.Adapter<CountryAdapter.CountryV
 
     class CountryViewHolder extends RecyclerView.ViewHolder {
 
-        private ImageView mCountryFlag;
-        private TextView mTVCountryName, mTVCountryNativeName;
-        private LinearLayout mCountry_item_root_view;
+        private final ImageView mCountryFlag;
+        private final TextView mTVCountryName;
+        private final TextView mTVCountryNativeName;
+        private final LinearLayout mCountry_item_root_view;
 
         public CountryViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -118,7 +121,7 @@ public class CountryAdapter extends RecyclerView.Adapter<CountryAdapter.CountryV
             try {
                 borderCountriesAlpha3.add(mCountries.get(position).getBorders().get(i));
             } catch (Exception e) {
-
+                Log.d(TAG, "getBorderCountries: " + e.getMessage());
             }
         }
 

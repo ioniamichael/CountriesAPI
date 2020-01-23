@@ -14,6 +14,9 @@ import com.enjoyapps.countriesapi.ui.fragments.CountryListFragment;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private final String TAG = "myDebug";
+
+
     private Button mBtnSortByName, mBtnSortByArea;
     private Fragment mCurrentFragment;
 
@@ -51,7 +54,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         ((BorderCountriesFragment) mCurrentFragment).sortByArea();
                     }
                 } catch (Exception e) {
-
+                    Log.d(TAG, "getBorderCountries: "+e.getMessage());
                 }
                 break;
             case R.id.btnSortByName:
@@ -64,11 +67,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         ((BorderCountriesFragment) mCurrentFragment).sortByNativeName();
                     }
                 } catch (Exception e) {
-
+                    Log.d(TAG, "getBorderCountries: "+e.getMessage());
                 }
                 break;
         }
-        Log.d("myDebug", "onClick: "+mCurrentFragment.toString());
     }
 
     private void openCountriesFragment() {
