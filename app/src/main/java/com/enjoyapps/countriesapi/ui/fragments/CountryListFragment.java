@@ -16,11 +16,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.airbnb.lottie.LottieAnimationView;
 import com.enjoyapps.countriesapi.R;
 import com.enjoyapps.countriesapi.adapters.CountryAdapter;
+import com.enjoyapps.countriesapi.api.ApiClient;
+import com.enjoyapps.countriesapi.api.ApiService;
 import com.enjoyapps.countriesapi.mvp.CountriesView;
 import com.enjoyapps.countriesapi.mvp.CountryPresenter;
 import com.enjoyapps.countriesapi.pojo.Country;
 
 import java.util.List;
+
+import retrofit2.Call;
 
 public class CountryListFragment extends Fragment implements CountryPresenter {
 
@@ -33,6 +37,8 @@ public class CountryListFragment extends Fragment implements CountryPresenter {
     private CountriesView mCountriesView;
     private View incPlaceHolder;
     private LottieAnimationView mLavPlaceHolder;
+    private Call<List<Country>> mCall;
+    private ApiService mApiService;
 
     @Nullable
     @Override
@@ -45,7 +51,9 @@ public class CountryListFragment extends Fragment implements CountryPresenter {
     }
 
     private void initClasses() {
-        mCountriesView = new CountriesView(this, getContext());
+        mApiService = ApiClient.getRetrofitInstance().create(ApiService.class);
+        mCall = mApiService.getAllCountries();
+        mCountriesView = new CountriesView(this, getContext(), mCall);
     }
 
     private void initView(View view) {
@@ -102,6 +110,14 @@ public class CountryListFragment extends Fragment implements CountryPresenter {
 
     public void sortByArea() {
         mCountryAdapter.sortByArea();
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        if (mCall != null && mCall.isExecuted()){
+            mCall.cancel();
+        }
     }
 }
 

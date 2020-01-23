@@ -21,16 +21,15 @@ public class CountriesView {
     private final Context mContext;
     private Call<List<Country>> call;
 
-    public CountriesView(CountryPresenter mCountryPresenter, Context mContext) {
+    public CountriesView(CountryPresenter mCountryPresenter, Context mContext, Call<List<Country>> call) {
         this.mCountryPresenter = mCountryPresenter;
         this.mContext = mContext;
+        this.call = call;
     }
-
 
     public void getAllCountries() {
         mCountryPresenter.showPlaceHolder();
-        ApiService apiService = ApiClient.getRetrofitInstance().create(ApiService.class);
-        call = apiService.getAllCountries();
+
         call.enqueue(new Callback<List<Country>>() {
             @Override
             public void onResponse(@androidx.annotation.NonNull Call<List<Country>> call, @androidx.annotation.NonNull Response<List<Country>> response) {

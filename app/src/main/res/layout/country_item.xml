@@ -26,7 +26,7 @@
             android:layout_gravity="center"
             android:layout_weight="1"
             android:adjustViewBounds="true"
-            android:scaleType="centerCrop" />
+            android:scaleType="centerCrop"/>
 
     </androidx.cardview.widget.CardView>
 
@@ -50,5 +50,6 @@
         android:layout_weight="1"
         android:textAlignment="center"
         tools:text="@string/native_name" />
+
 
 </LinearLayout>
