@@ -19,7 +19,7 @@ public class ArraySort {
             Collections.sort(mCountryList, new Comparator<Country>() {
                 @Override
                 public int compare(Country o1, Country o2) {
-                    return o1.getNativeName().compareToIgnoreCase(o2.getNativeName());
+                    return o1.getName().compareToIgnoreCase(o2.getName());
                 }
             });
             isSortedByNameAscending = true;

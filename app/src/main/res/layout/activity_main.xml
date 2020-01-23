@@ -6,76 +6,83 @@
     android:padding="5dp"
     tools:context=".ui.activities.MainActivity">
 
-
-    <LinearLayout
-        android:id="@+id/sort_buttons_container"
+    <RelativeLayout
+        android:elevation="1dp"
+        android:id="@+id/top_frame"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content"
+        android:background="#BCFFFFFF">
 
-        <Button
-            android:id="@+id/btnSortByName"
+        <LinearLayout
+            android:id="@+id/sort_buttons_container"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="10dp"
-            android:layout_weight="1"
-            android:background="@drawable/button_style"
-            android:stateListAnimator="@null"
-            android:text="@string/sort_by_native_name"
-            android:textAllCaps="false"
-            android:textSize="12sp"
-            android:translationZ="10dp" />
+            android:layout_height="60dp"
+            android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/btnSortByArea"
+            <Button
+                android:id="@+id/btnSortByName"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_style"
+                android:stateListAnimator="@null"
+                android:text="@string/sort_by_name"
+                android:textAllCaps="false"
+                android:textSize="12sp"
+                android:translationZ="10dp" />
+
+            <Button
+                android:id="@+id/btnSortByArea"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_style"
+                android:stateListAnimator="@null"
+                android:text="@string/sort_by_area"
+                android:textAllCaps="false"
+                android:textSize="12sp"
+                android:translationZ="10dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/titleOfColumns"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="10dp"
-            android:layout_weight="1"
-            android:background="@drawable/button_style"
-            android:stateListAnimator="@null"
-            android:text="@string/sort_by_area"
-            android:textAllCaps="false"
-            android:textSize="12sp"
-            android:translationZ="10dp" />
+            android:layout_height="40dp"
+            android:gravity="center_vertical"
+            android:layout_below="@id/sort_buttons_container"
+            android:orientation="horizontal">
 
-    </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/flag"
+                android:textAlignment="center" />
 
-    <LinearLayout
-        android:id="@+id/titleOfColumns"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_below="@id/sort_buttons_container"
-        android:orientation="horizontal">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/country_name"
+                android:textAlignment="center" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/flag"
-            android:textAlignment="center" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/native_name"
+                android:textAlignment="center" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/country_name"
-            android:textAlignment="center" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/native_name"
-            android:textAlignment="center" />
-
-    </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
 
     <FrameLayout
         android:id="@+id/main_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/titleOfColumns"
         android:padding="5dp">
 
     </FrameLayout>

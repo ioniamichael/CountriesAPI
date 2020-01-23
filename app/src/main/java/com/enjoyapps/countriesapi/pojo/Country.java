@@ -3,8 +3,6 @@ package com.enjoyapps.countriesapi.pojo;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 public class Country{
@@ -214,7 +212,6 @@ public class Country{
         this.numericCode = numericCode;
     }
 
-
     public String getFlag() {
         return flag;
     }
@@ -223,7 +220,6 @@ public class Country{
         this.flag = flag;
     }
 
-
     public String getCioc() {
         return cioc;
     }
@@ -231,5 +227,4 @@ public class Country{
     public void setCioc(String cioc) {
         this.cioc = cioc;
     }
-
 }
