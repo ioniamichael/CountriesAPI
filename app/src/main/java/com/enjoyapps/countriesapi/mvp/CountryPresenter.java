@@ -6,5 +6,7 @@ import java.util.List;
 
 public interface CountryPresenter {
 
-    void generateDataList(List<Country> countries);
+    void setAdapter(List<Country> countries);
+    void showPlaceHolder();
+    void removePlaceHolder();
 }
