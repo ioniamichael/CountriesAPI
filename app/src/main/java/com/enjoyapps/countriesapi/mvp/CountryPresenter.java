@@ -15,7 +15,7 @@ import retrofit2.Response;
 public class CountryPresenter {
 
     private final String TAG = "myDebug";
-    
+
     private final CountryView mCountryView;
     private final Context mContext;
     private Call<List<Country>> mCall;

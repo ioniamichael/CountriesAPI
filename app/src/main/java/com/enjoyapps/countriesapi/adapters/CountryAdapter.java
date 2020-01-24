@@ -114,16 +114,8 @@ public class CountryAdapter extends RecyclerView.Adapter<CountryAdapter.CountryV
     }
 
     private List<Country> getBorderCountries(int position) {
-        List<String> borderCountriesAlpha3 = new ArrayList<>();
+        List<String> borderCountriesAlpha3 = new ArrayList<>(mCountries.get(position).getBorders());
         List<Country> borderCountries = new ArrayList<>();
-
-        for (int i = 0; i < mCountries.get(position).getBorders().size(); i++) {
-            try {
-                borderCountriesAlpha3.add(mCountries.get(position).getBorders().get(i));
-            } catch (Exception e) {
-                Log.d(TAG, "getBorderCountries: " + e.getMessage());
-            }
-        }
 
         for (int i = 0; i < mCountries.size(); i++) {
             for (int j = 0; j < borderCountriesAlpha3.size(); j++) {

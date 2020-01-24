@@ -2,6 +2,7 @@ package com.enjoyapps.countriesapi.utils;
 
 import com.enjoyapps.countriesapi.pojo.Country;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -19,7 +20,7 @@ public class ArraySort {
             Collections.sort(mCountryList, new Comparator<Country>() {
                 @Override
                 public int compare(Country o1, Country o2) {
-                    return o1.getName().compareToIgnoreCase(o2.getName());
+                    return o1.getName().compareTo(o2.getName());
                 }
             });
             isSortedByNameAscending = true;
@@ -40,6 +41,5 @@ public class ArraySort {
             isSortedByAreaAscending = true;
         }
     }
-
 
 }
